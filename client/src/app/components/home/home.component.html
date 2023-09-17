@@ -1,3 +1,19 @@
-<h1 class="text-3xl font-bold underline">
+<!-- <h1 class="text-3xl font-bold underline">
     Home Works!
-  </h1>
+  </h1> -->
+  <div>
+    <div class="carousel-div">
+      <mat-card class="carousel-card">
+        <mat-grid-list cols="4" rowHeight="8rem" style="width: 99.7%;">
+          <mat-grid-tile
+              *ngFor="let tile of tiles"
+              [colspan]="tile.cols"
+              [rowspan]="tile.rows"
+              [style.background]="tile.color">
+              <img [src]="tile.src" class="grid-listt" alt="Image Alt Text">
+          </mat-grid-tile>
+        </mat-grid-list>
+        
+      </mat-card>
+    </div>
+  </div>
