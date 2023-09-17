@@ -1,0 +1,28 @@
+.app-nav-container{
+    position: fixed;
+    height: calc(100% - 55px);
+    margin: 0;
+    left: 0;
+    top: 55px;
+
+    mat-sidenav-container{
+        height: 100%;
+    }
+}
+
+.app-nav-container.app-nav-open{
+    width: 270px;
+    z-index: 3;
+}
+
+
+.app-sidenav{
+    width: 270px;
+    z-index: 3;
+    
+}
+.app-sidenav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

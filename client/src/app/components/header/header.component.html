@@ -2,7 +2,7 @@
 
 <p>
     <mat-toolbar class="toolbar mat-elevation-z2">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <button mat-icon-button class="example-icon" (click)="toggleMenu()" matTooltip="Menu">
         <mat-icon>menu</mat-icon>
       </button>
       <span class="mr-2 sm:mr-2 md:mr-2 lg:mr-2 xl:mr-2 link" routerLink="home" >DzuoKart</span>
