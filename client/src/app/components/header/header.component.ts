@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AppService } from 'src/app/shared/app.service';
+import { SidenavService } from 'src/app/shared/sidenav.service';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +10,22 @@ import { AppService } from 'src/app/shared/app.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(
+    private appService: AppService,
+    private sidenavService: SidenavService
+    ) { }
 
   ngOnInit(): void {
     
   }
 
- 
   toggleMenu(){
-    this.appService.sidenav.toggle()
+    this.sidenavService.toggleSidenav();
   }
+ 
+  // toggleMenu(){
+  //   this.appService.sidenav.toggle()
+  // }
   // toggleMenu() {
   //   console.log('appService:', this.appService);
   //   console.log('sidenav:', this.appService.sidenav);

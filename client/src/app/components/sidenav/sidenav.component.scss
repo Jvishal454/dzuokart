@@ -3,7 +3,7 @@
     height: calc(100% - 55px);
     margin: 0;
     left: 0;
-    top: 55px;
+    top: 60px;
 
     mat-sidenav-container{
         height: 100%;
@@ -17,6 +17,7 @@
 
 
 .app-sidenav{
+    background-color: rgb(246, 245, 245);
     width: 270px;
     z-index: 3;
     
