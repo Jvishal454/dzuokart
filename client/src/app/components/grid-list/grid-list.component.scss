@@ -24,3 +24,31 @@
 mat-grid-tile {
     background: lightblue;
   }
+
+  .row-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin: 5px;
+    // margin-top: 5px;
+    // margin-bottom: 5px;
+    height: 90.7%;
+    width: 99.10%;
+    margin-right: 0.3rem;
+    border-style: solid double;
+    background-color: rgb(154, 73, 170);
+  }
+
+  .row-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin: 5px;
+    // margin-top: 5px;
+    // margin-bottom: 5px;
+    height: 90.7%;
+    width: 99.10%;
+    margin-right: 0.3rem;
+    border-style: solid double;
+    background-color: rgb(231, 163, 128);
+  }
