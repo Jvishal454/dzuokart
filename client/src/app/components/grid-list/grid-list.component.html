@@ -1,16 +1,11 @@
 <div>
     <div class="carousel-div">
-      <mat-card class="carousel-card">
-        <mat-grid-list cols="4" rowHeight="8rem" style="width: 99.9%;">
-          <mat-grid-tile
-              *ngFor="let tile of tiles"
-              [colspan]="tile.cols"
-              [rowspan]="tile.rows"
-              [style.background]="tile.color">
-              <img [src]="tile.src" class="grid-listt" alt="Image Alt Text">
-          </mat-grid-tile>
-        </mat-grid-list>
-        
-      </mat-card>
+      <mat-grid-list cols="4" rowHeight="7rem" class="grid-list">
+        <mat-grid-tile colspan="3" rowspan="1" style="background-color: #e256c4;">1</mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="2" style="background-color: rgb(157, 65, 203);">2</mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1" style="background-color: #d77281;">3</mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1" style="background-color: blueviolet;">4</mat-grid-tile>
+      </mat-grid-list>
+      
     </div>
   </div>
