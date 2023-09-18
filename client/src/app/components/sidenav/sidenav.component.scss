@@ -27,3 +27,12 @@
     align-items: center;
     justify-content: center;
 }
+
+//Running all changes for modile width
+@media all and (max-width: 430px) {
+    .app-nav-container.app-nav-open{
+        width: 60%;
+        z-index: 3;
+    }
+  }
+  
