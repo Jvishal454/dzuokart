@@ -52,3 +52,73 @@ mat-grid-tile {
     border-style: solid double;
     background-color: rgb(231, 163, 128);
   }
+
+  .col-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // margin: 5px;
+    // margin-top: 5px;
+    // margin-bottom: 5px;
+    height: fit-content;
+    width: fit-content;
+    // margin-right: 0.3rem;
+    border-style: solid double;
+    background-color: rgb(154, 73, 170);
+  }
+
+  .col2-row2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5px; //forms the square border
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    // background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+  
+  }
+
+  .col2-row2 img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .col2-row2 img:hover {
+    opacity: 0.7;
+  }
+
+  .cover {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    max-width: 100%;
+    max-height: 28%;
+    width: auto;
+    height: auto;
+    color: rgba(255, 255, 255, 0);
+    text-align: center;
+    transition: all 1s linear;
+
+    
+  }
+  
+ 
+
+  .cover:hover {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    background-color: rgba(0,0,0,.8);
+    color: rgba(255,255,255,1);
+    transition: all .2s linear;
+  }
+  

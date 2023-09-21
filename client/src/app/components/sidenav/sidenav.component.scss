@@ -13,6 +13,7 @@
 .app-nav-container.app-nav-open{
     width: 270px;
     z-index: 3;
+    transition: width 0.3s ease-in-out;
 }
 
 
@@ -33,6 +34,7 @@
     .app-nav-container.app-nav-open{
         width: 60%;
         z-index: 3;
+        transition: width 0.3s ease-in-out;
     }
   }
   
