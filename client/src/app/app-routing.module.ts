@@ -6,7 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent },
-  { path: 'header', component: HeaderComponent }
+  { path: 'electronics', loadChildren: () => import('./modules/electronics/electronics.module').then((m) => m.ElectronicsModule)},
+  
 ];
 
 @NgModule({

@@ -17,7 +17,7 @@ import { GridListComponent } from './components/grid-list/grid-list.component';
     HomeComponent,
     HeaderComponent,
     SidenavComponent,
-    GridListComponent
+    GridListComponent,
   ],
   imports: [
     BrowserModule,
