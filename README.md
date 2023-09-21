@@ -17,15 +17,15 @@ An E-Commerce Site.
 
 ## Overview
 
-Provide a high-level overview of your project. Explain what it does, why it's useful, and who it's intended for.
+DzuoKart is an E-com application built using Angular, Node.js, Express.js offering a visually appealing and interactive user experience. 
 
 ## Demo
 
-Include screenshots, GIFs, or a link to a live demo of your project to give users a visual preview.
+Coming Soon
 
 ## Features
 
-List the key features and functionalities of your project.
+Coming Soon
 
 - Feature 1
 - Feature 2
@@ -44,14 +44,23 @@ List any prerequisites that users need to have installed or set up before they c
 
 ### Installation
 
-Provide step-by-step installation instructions. Make sure to include code blocks and commands. For example:
+Follow step-by-step installation instructions mentioned below:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/yourproject.git
+git clone https://github.com/Jvishal454/dzuokart.git
 
 # Change to the project directory
 cd yourproject
+
+# Change to the client directory & Install
+cd client
+
+# Install dependencies
+npm install
+
+# Change to the server directory & Install
+cd server
 
 # Install dependencies
 npm install
