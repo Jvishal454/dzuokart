@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared/shared.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GridListComponent } from './components/grid-list/grid-list.component';
     HeaderComponent,
     SidenavComponent,
     GridListComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,

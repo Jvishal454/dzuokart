@@ -1,0 +1,39 @@
+
+.container{
+   display: flex;
+//    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 92.5vh;
+    
+    background: linear-gradient(to bottom, #2E108E, #3197D6);
+
+}
+
+// .child-cont{
+//     display: flex;
+//     flex-direction: column;
+//     height: 100%;
+//     width: 100%;
+// }
+
+
+.login-svg{
+    position: absolute;
+    opacity: 100%;
+    width: 15%;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.login-svg-2{
+    position: absolute;
+    opacity: 100%;
+    width: 22%;
+    margin: 1rem;
+    padding: 0;
+    bottom: 0;
+}
