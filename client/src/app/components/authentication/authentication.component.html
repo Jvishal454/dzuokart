@@ -1,13 +1,22 @@
 <div class="container">
     <div class="card-class">
         <mat-card class="card">
+            <div class="btn-div">
+                <button mat-raised-button (click)="showLogin()">Login</button>
+                <button mat-raised-button (click)="showSignUp()">Signup</button>
+            </div>
             <div class="card-col-1">
-                <img src="assets\images\login\login-1.png" alt="freelancer" draggable="false">
+              <img src="assets\images\login\login-1.png" alt="freelancer" draggable="false">
             </div>
             <div class="card-col-2">
-                col 2
+              <div *ngIf="isLoginVisible">
+                This is Login
+              </div>
+              <div *ngIf="isSignUpVisible">
+                This is Signup
+              </div>
             </div>
-        </mat-card>
+          </mat-card>
     </div>
 
 

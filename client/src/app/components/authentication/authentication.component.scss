@@ -21,6 +21,7 @@
 
 .card{
     display: flex;
+    position: relative;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -30,6 +31,21 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     background-color: honeydew; /*replace this same color for card-col-2 bg color */
     // transition: all 0.3s ease; 
+}
+.btn-div{
+    display: flex;
+    position: absolute;
+    top: 0;
+    margin-top: 2rem;
+    margin-left: 0.6rem;
+    border: 3px solid honeydew;
+    background-color: #B3C2F2;
+    padding: 0.2rem;
+    border-radius: 50px;
+}
+
+.btn-div button {
+    border-radius: 50px;
 }
 
 .card-col-1{
@@ -53,6 +69,7 @@
     border-radius: 15px 15px 15px 15px;
     background-color: honeydew;
 }
+
 
 
 // .card:hover {
