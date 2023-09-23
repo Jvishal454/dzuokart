@@ -5,16 +5,20 @@
                 <button mat-raised-button (click)="showLogin()">Login</button>
                 <button mat-raised-button (click)="showSignUp()">Signup</button>
             </div>
-            <div class="card-col-1">
-              <img src="assets\images\login\login-1.png" alt="freelancer" draggable="false">
+            <div class="card-col-1" *ngIf="isLoginVisible">
+              <img src="assets\images\login\login-3.svg" alt="freelancer" draggable="false">
             </div>
-            <div class="card-col-2">
-              <div *ngIf="isLoginVisible">
+            <div class="card-col-1" *ngIf="isSignUpVisible">
+                <img src="assets\images\login\login-5.svg" alt="freelancer" draggable="false">
+              </div>
+
+
+            <div class="card-col-2" *ngIf="isLoginVisible">
+              
                 This is Login
-              </div>
-              <div *ngIf="isSignUpVisible">
+            </div>
+            <div class="card-col-2" *ngIf="isSignUpVisible">
                 This is Signup
-              </div>
             </div>
           </mat-card>
     </div>
