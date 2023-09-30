@@ -11,9 +11,29 @@
       <button mat-icon-button class="example-icon favorite-icon" >
         <mat-icon>settings</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+
+      <!-- Lazy rendereing using template -->
+      <button mat-icon-button [matMenuTriggerFor]="appMenu" class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon>person</mat-icon>
       </button>
+      <mat-menu #appMenu="matMenu" class="mat-menuu">
+        <ng-template matMenuContent>
+          <button mat-menu-item routerLink="/authentication">
+            <mat-icon>person</mat-icon>
+            <span>Login</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+        </ng-template>
+      </mat-menu>
+      
+      
     </mat-toolbar>
   </p>
     

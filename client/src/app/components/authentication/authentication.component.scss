@@ -6,7 +6,7 @@
 //    flex-direction: column;
     width: 100%;
     margin: 0;
-    padding: 2rem;
+    padding: 2.8rem;
     height: 92.5vh;
     background-color: honeydew;
     // background: linear-gradient(to bottom, #2E108E, #3197D6);
@@ -48,6 +48,11 @@
     border-radius: 50px;
 }
 
+.selected-btn {
+    background-color: #36382E;
+    color: white;
+  }
+
 .card-col-1{
     display: flex;
     flex-direction: column;
@@ -62,10 +67,12 @@
 .card-col-2{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 5rem;
     align-items: center;
     height: 100%;
     width: 50%;
+    gap: 3rem;
     border-radius: 15px 15px 15px 15px;
     background-color: honeydew;
 }
@@ -104,3 +111,57 @@
     left: 0;
     bottom: 0;
 }
+
+.para{
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.form-class {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    // background-color: red;
+  }
+  
+  .form-class form {
+    flex: 1; /* This makes the form expand to fill available vertical space */
+  }
+  
+  /* Apply width: 100% to input and mat-icon to make them take up the full width */
+  .form-class mat-form-field {
+    width: 100%;
+  }
+  
+  .form-class input,
+  .form-class mat-icon {
+    width: 100%;
+  }
+  
+
+  .login-btn{
+    margin-top: 0.5rem;
+    font-family: cursive;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .forgot-pass{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .forgot-pass:hover{
+    cursor: pointer;
+    color: dodgerblue;
+  }
+
+  .divider{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 0.5rem;
+    // background-color: red;
+
+  }

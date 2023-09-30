@@ -2,23 +2,50 @@
     <div class="card-class">
         <mat-card class="card">
             <div class="btn-div">
-                <button mat-raised-button (click)="showLogin()">Login</button>
-                <button mat-raised-button (click)="showSignUp()">Signup</button>
+                <button mat-raised-button (click)="showLogin()" [class.selected-btn]="isLoginVisible">Login</button>
+                <button mat-raised-button (click)="showSignUp()" [class.selected-btn]="isSignUpVisible">Signup</button>
             </div>
             <div class="card-col-1" *ngIf="isLoginVisible">
               <img src="assets\images\login\login-3.svg" alt="freelancer" draggable="false">
             </div>
+            <div class="card-col-2" *ngIf="isLoginVisible">
+                <div>
+                    <p class="para">Login</p>
+                </div>
+                <div class="form-class">
+                    <form [formGroup]="login" >
+                        <mat-form-field appearance="fill" [hideRequiredMarker]="true">
+                            <mat-label>Username</mat-label>
+                            <input matInput formControlName="username">
+                            <mat-icon matPrefix>person</mat-icon>
+                          </mat-form-field>
+                          <mat-form-field appearance="fill" [hideRequiredMarker]="true">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                            <mat-icon matPrefix>lock</mat-icon>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button>
+                          </mat-form-field>
+                    </form>
+                    <p class="forgot-pass">Forgot Password?</p>
+                    <button (click)="submitForm()" class="login-btn" mat-raised-button color="primary">Login</button>
+                </div>
+                <div class="divider">
+                    <mat-divider style="color: red; background-color: purple;"></mat-divider>
+                    <button mat-raised-button (click)="loginGoogle()"> 
+                        <mat-icon matPrefix svgIcon="google"></mat-icon>
+                        <span>Login with Google</span>
+                    </button>
+                </div>
+            </div>
+
+
             <div class="card-col-1" *ngIf="isSignUpVisible">
                 <img src="assets\images\login\login-5.svg" alt="freelancer" draggable="false">
-              </div>
-
-
-            <div class="card-col-2" *ngIf="isLoginVisible">
-              
-                This is Login
             </div>
             <div class="card-col-2" *ngIf="isSignUpVisible">
-                This is Signup
+                This is Sign up
             </div>
           </mat-card>
     </div>
