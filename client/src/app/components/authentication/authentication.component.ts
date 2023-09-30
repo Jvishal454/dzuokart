@@ -41,12 +41,17 @@ export class AuthenticationComponent {
   registerIcons(){
     const icons = {
       'google': 'assets/images/login/google.svg',
-      'facebook': 'assets/images/login/fb.svg'
+      'facebook': 'assets/images/login/facebook.svg'
     }
-    this.matIconRegistry.addSvgIcon(
-      'google', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/login/google.svg')
-    );
+    for (const [iconName, iconPath] of Object.entries(icons)) {
+      this.matIconRegistry.addSvgIcon(
+      iconName,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(iconPath)
+      );
+      }
   }
+
+  
 
   // Create methods to toggle the states
   showLogin() {
