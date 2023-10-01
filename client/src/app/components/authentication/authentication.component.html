@@ -15,7 +15,7 @@
                 <div class="form-class">
                     <form [formGroup]="login" >
                         <mat-form-field appearance="fill" [hideRequiredMarker]="true">
-                            <mat-label>Username</mat-label>
+                            <mat-label>User Name</mat-label>
                             <input matInput formControlName="username">
                             <mat-icon matPrefix>person</mat-icon>
                           </mat-form-field>
@@ -37,10 +37,11 @@
                         <mat-icon matPrefix svgIcon="google"></mat-icon>
                         <span>Login with Google</span>
                     </button>
-                    <button mat-raised-button (click)="loginGoogle()"> 
+                    <button mat-raised-button (click)="loginFacebook()"> 
                         <mat-icon matPrefix svgIcon="facebook"></mat-icon>
                         <span>Login with Facebook</span>
                     </button>
+                    <p class="toggle-other" (click)="showSignUp()" [class.selected-btn]="isSignUpVisible">Need an Account? Signup</p>
                 </div>
             </div>
 
@@ -49,7 +50,45 @@
                 <img src="assets\images\login\login-5.svg" alt="freelancer" draggable="false">
             </div>
             <div class="card-col-2" *ngIf="isSignUpVisible">
-                This is Sign up
+                <div>
+                    <p class="para">Signup</p>
+                </div>
+                <div class="form-class">
+                    <form [formGroup]="signup" >
+                        <mat-form-field appearance="fill" [hideRequiredMarker]="true">
+                            <mat-label>Fullname</mat-label>
+                            <input matInput formControlName="fullname">
+                            <mat-icon matPrefix>person</mat-icon>
+                          </mat-form-field>
+                        <mat-form-field appearance="fill" [hideRequiredMarker]="true">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email">
+                            <mat-icon matPrefix>email</mat-icon>
+                          </mat-form-field>
+                          <mat-form-field appearance="fill" [hideRequiredMarker]="true">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                            <mat-icon matPrefix>lock</mat-icon>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button>
+                          </mat-form-field>
+                    </form>
+                    <!-- <p class="forgot-pass">Forgot Password?</p> -->
+                    <button (click)="signupForm()" class="login-btn" mat-raised-button color="primary">Signup</button>
+                </div>
+                <div class="divider">
+                    <mat-divider style="background-color: brown;"></mat-divider>
+                    <!-- <button mat-raised-button (click)="loginGoogle()"> 
+                        <mat-icon matPrefix svgIcon="google"></mat-icon>
+                        <span>Login with Google</span>
+                    </button>
+                    <button mat-raised-button (click)="loginFacebook()"> 
+                        <mat-icon matPrefix svgIcon="facebook"></mat-icon>
+                        <span>Login with Facebook</span>
+                    </button> -->
+                    <p class="toggle-other" (click)="showLogin()" [class.selected-btn]="isLoginVisible">Already have an Account? Login </p>
+                </div>
             </div>
           </mat-card>
     </div>

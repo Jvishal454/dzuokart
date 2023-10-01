@@ -15,7 +15,8 @@ export class AuthenticationComponent {
   isSignUpVisible = false;
   hide = true;
 
-  login: FormGroup; 
+  login: FormGroup;
+  signup: FormGroup;
 
   // hideRequiredControl = new FormControl(false);
   // floatLabelControl = new FormControl('auto' as FloatLabelType);
@@ -36,6 +37,12 @@ export class AuthenticationComponent {
       username: ['', Validators.required], 
       password: ['', Validators.required],
     });
+
+    this.signup = this.fb.group({
+      fullname: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
   }
 
   registerIcons(){
@@ -76,6 +83,21 @@ export class AuthenticationComponent {
         this.openSnackBar('Please Fill in the Fields', 'close')
     }
   }
+
+  signupForm(){
+    if (this.signup.valid) {
+      const fullname = this.signup.get('fullname').value;
+      const email = this.signup.get('email').value;
+      const password = this.signup.get('password').value;
+
+      console.log('Username:', fullname);
+      console.log('Email', email);
+      console.log('Password:', password);
+    }
+    else {
+        this.openSnackBar('Please Fill in the Signup Fields', 'close')
+    }
+  }
   
   // general snackbar 
   openSnackBar(message: string, action: string) {
@@ -87,7 +109,11 @@ export class AuthenticationComponent {
   }
 
   loginGoogle(){
-    this.openSnackBar('Google Login under construction', 'close')
+    this.openSnackBar('Google Login under construction', 'close');
+  }
+
+  loginFacebook(){
+    this.openSnackBar('Facebook Login under construction', 'close');
   }
 
   // getFloatLabelValue(): FloatLabelType {
