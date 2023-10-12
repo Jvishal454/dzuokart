@@ -10,4 +10,9 @@ export class AppService {
   sidenav: MatSidenav;
 
   constructor(private http: HttpClient) { }
+
+  getProducts(){
+    let url = `https://fakestoreapi.com/products`;
+    return this.http.get(url);
+  }
 }

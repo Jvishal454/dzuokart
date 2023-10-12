@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -10,7 +10,7 @@ import { FloatLabelType } from '@angular/material/form-field';
   templateUrl: './authentication.component.html',
   styleUrls: ['./authentication.component.scss']
 })
-export class AuthenticationComponent {
+export class AuthenticationComponent implements OnInit {
   isLoginVisible = true; // Initialize with login UI visible
   isSignUpVisible = false;
   hide = true;
@@ -44,6 +44,17 @@ export class AuthenticationComponent {
       password: ['', Validators.required]
     })
   }
+
+  // handling scrollabr overflow
+  ngOnInit(): void {
+    document.body.style.overflow = 'hidden'
+  }
+
+  //Remove style on destroy
+  ngOnDestroy(): void {
+    document.body.style.removeProperty('overflow')
+  }
+  
 
   registerIcons(){
     const icons = {

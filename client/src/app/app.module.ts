@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared/shared.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
     SidenavComponent,
     GridListComponent,
     AuthenticationComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
