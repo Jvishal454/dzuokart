@@ -8,8 +8,8 @@
         <img [src]="product.image" alt="{{product.title}}" draggable="false" >
       </div>
       <div class="product-details">
-        <p>{{ product.title.split(' ')[0] }}</p>
         <p >{{ product.title }}</p>
+        <span> {{ product.ratings.rate }} <mat-icon>hotel_class</mat-icon></span>
         <p> ₹{{product.price}}</p>
       </div>
       </mat-card>

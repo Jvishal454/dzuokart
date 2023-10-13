@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "Adidas Hoodie",
+    "price": 4900,
+    "ratings": {
+      "rate": 4.5,
+      "count": 300
+    },
+    "category": "clothes",
+    "subCategory": "hoodies",
+    "image": "assets/images/products/clothes/hoodies/2-adidas/1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Peter England Shirt",
+    "price": 1900,
+    "ratings": {
+      "rate": 4.6,
+      "count": 900
+    },
+    "category": "clothes",
+    "subCategory": "Shirt",
+    "image": "assets/images/products/clothes/shirts/1-peter-england/1.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Dell",
+    "price": 49900,
+    "ratings": {
+      "rate": 4.1,
+      "count": 200
+    },
+    "category": "Electronics",
+    "subCategory": "Laptops",
+    "image": "assets/images/products/electronics/laptops/1-Dell/1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Apple M1 Macbook",
+    "price": 1900,
+    "ratings": {
+      "rate": 4.8,
+      "count": 600
+    },
+    "category": "Electronics",
+    "subCategory": "Laptops",
+    "image": "assets/images/products/electronics/laptops/1-Apple/1.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Alienware",
+    "price": 110000,
+    "ratings": {
+      "rate": 4.7,
+      "count": 700
+    },
+    "category": "Electronics",
+    "subCategory": "Laptops",
+    "image": "assets/images/products/electronics/laptops/1-Alienware/4.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Lenovo",
+    "price": 45900,
+    "ratings": {
+      "rate": 4.2,
+      "count": 980
+    },
+    "category": "Electronics",
+    "subCategory": "Laptops",
+    "image": "assets/images/products/electronics/laptops/1-Lenovo/1.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Adidas Women Hoodie",
+    "price": 6500,
+    "ratings": {
+      "rate": 4.5,
+      "count": 150
+    },
+    "category": "clothes",
+    "subCategory": "hoodies",
+    "image": "assets/images/products/clothes/hoodies/1-adidas/1.jpeg"
+  },
+  {
+    "id": 8,
+    "title": "Samsung Galaxy",
+    "price": 35240,
+    "ratings": {
+      "rate": 4.9,
+      "count": 900
+    },
+    "category": "Electronics",
+    "subCategory": "phones",
+    "image": "assets/images/products/electronics/phones/1-samsung/1.jpg"
+  }
+]

@@ -15,4 +15,9 @@ export class AppService {
     let url = `https://fakestoreapi.com/products`;
     return this.http.get(url);
   }
+
+  getMProducts(){
+    let url = `/api/data/getProducts`;
+    return this.http.get(url);
+  }
 }
