@@ -70,15 +70,16 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-left: 2px;
   margin: 5px 0; /* Set top and bottom margins to 5px */
   flex: 1;
 }
-
 
 .product-details p:nth-child(1) {
   color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: medium;
+ 
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
