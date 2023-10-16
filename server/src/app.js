@@ -3,8 +3,11 @@ var express = require("express");
 var path = require("path");
 var apiRouter = require("./routes/index");
 
+console.log('app')
 
 var app = express();
+
+app.use(express.static(path.join(__dirname, "../static")));
 
 app.use("/api", apiRouter);
 
