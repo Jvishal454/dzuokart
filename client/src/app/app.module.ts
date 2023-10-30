@@ -12,6 +12,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { TestComponent } from './components/test/test.component';
+import { ProductsHomeComponent } from './components/products-home/products-home.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TestComponent } from './components/test/test.component';
     GridListComponent,
     AuthenticationComponent,
     TestComponent,
+    ProductsHomeComponent,
   ],
   imports: [
     BrowserModule,
