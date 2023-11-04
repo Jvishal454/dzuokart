@@ -4,10 +4,12 @@
         *ngFor="let product of products"
         class="product-card"
         (click)="viewProductDetails(product)"
-      ><div class="prod-img">
+      ><div class="prod-img" routerLink="/products/product-item" 
+      [queryParams]="{productid:product._id, title:product.title, category:product.category, subCategory: product.subCategory, price: product.price, rate: product.ratings.rate, count: product.ratings.count, image: product.image}">
         <img [src]="product.image" alt="{{product.title}}" draggable="false" >
       </div>
-      <div class="product-details">
+      <div class="product-details" routerLink="/products/product-item" 
+      [queryParams]="{productid:product._id, title:product.title, category:product.category, subCategory: product.subCategory, price: product.price, rate: product.ratings.rate, count: product.ratings.count, image: product.image}">
         <p >{{ product.title }}</p>
         <span> {{ product.ratings.rate }} <mat-icon>hotel_class</mat-icon></span>
         <p> ₹{{product.price}}</p>

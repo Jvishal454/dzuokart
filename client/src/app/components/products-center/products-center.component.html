@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="product-row">
+        <mat-card *ngFor="let product of products" class="product-card" (click)="clickedProduct($event, product)"
+        routerLink="/products/product-item"
+        [queryParams]="{productid:product._id, title:product.title, category:product.category, subCategory: product.subCategory, pid: product.id}" >
+            <div class="product-img">
+                <img [src]="product.image" alt="{{product.title}}" draggable="false" >
+            </div>
+            <div class="product-description">
+                <p>{{ product.title }}</p>
+                <p> Product Description</p>
+                <p> ₹ {{product.price}}</p>
+            </div>
+        </mat-card>
+    </div>
+    <div class="product-grid">
+        <mat-grid-list cols="2" rowHeight="1.5:1">
+            <mat-grid-tile>1</mat-grid-tile>
+            <mat-grid-tile>2</mat-grid-tile>
+            <mat-grid-tile>3</mat-grid-tile>
+            <mat-grid-tile>4</mat-grid-tile>
+          </mat-grid-list>
+    </div>
+</div>

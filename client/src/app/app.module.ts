@@ -13,6 +13,7 @@ import { GridListComponent } from './components/grid-list/grid-list.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { TestComponent } from './components/test/test.component';
 import { ProductsHomeComponent } from './components/products-home/products-home.component';
+import { ProductsCenterComponent } from './components/products-center/products-center.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProductsHomeComponent } from './components/products-home/products-home.
     AuthenticationComponent,
     TestComponent,
     ProductsHomeComponent,
+    ProductsCenterComponent,
   ],
   imports: [
     BrowserModule,

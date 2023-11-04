@@ -45,12 +45,5 @@ export class TestComponent implements OnInit {
     })
   }
 
-  goToProductsPage(): void {
-    // Implement navigation to the Products page
-  }
-
-  viewProductDetails(product: Product): void {
-    // Implement navigation to the Product Details page and pass the product data
-    console.log(product);
-  }
+ 
 }

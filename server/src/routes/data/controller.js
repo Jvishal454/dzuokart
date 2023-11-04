@@ -14,6 +14,18 @@ export async function getProducts(req, res) {
         console.error(error);
         res.status(500).json({ message: 'Internal Server Error' });
       }
+}
 
-   
+export async function getProductItem(req, res) {
+  try{
+    const pid = req.query.pid;
+    console.log('pid is', pid);
+    const product = await modelProduct.findOne({ id: pid }).lean();
+    res.json(product); // Send the matching product as JSON
+  }
+  catch(error) {
+    console.log(error);
+    res.status(404).json({ message: 'Product not found' });
+  }
+
 }

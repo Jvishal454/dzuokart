@@ -8,6 +8,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppService {
 
   sidenav: MatSidenav;
+  selectedProduct;
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,12 @@ export class AppService {
 
   getMProducts(){
     let url = `/api/data/getProducts`;
+    return this.http.get(url);
+  }
+
+  getProductItem(data){
+    let url = `/api/data/getproductitem?pid=${data}`;
+    console.log('app service', data);
     return this.http.get(url);
   }
 }
