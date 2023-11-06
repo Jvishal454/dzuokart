@@ -9,12 +9,12 @@
             <div class="product-description">
                 <p>{{ product.title }}</p>
                 <p> Product Description</p>
-                <p> ₹ {{product.price}}</p>
+                <p> ₹ {{product.price.discounted}}</p>
             </div>
         </mat-card>
     </div>
     <div class="product-grid">
-        <mat-grid-list cols="2" rowHeight="1.5:1">
+        <mat-grid-list cols="2" rowHeight="1.56:1">
             <mat-grid-tile>1</mat-grid-tile>
             <mat-grid-tile>2</mat-grid-tile>
             <mat-grid-tile>3</mat-grid-tile>

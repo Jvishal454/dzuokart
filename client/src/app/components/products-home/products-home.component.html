@@ -5,14 +5,14 @@
         class="product-card"
         (click)="viewProductDetails(product)"
       ><div class="prod-img" routerLink="/products/product-item" 
-      [queryParams]="{productid:product._id, title:product.title, category:product.category, subCategory: product.subCategory, price: product.price, rate: product.ratings.rate, count: product.ratings.count, image: product.image}">
+      [queryParams]="{productid:product._id, title:product.title, category:product.category, subCategory: product.subCategory, pid: product.id}">
         <img [src]="product.image" alt="{{product.title}}" draggable="false" >
       </div>
       <div class="product-details" routerLink="/products/product-item" 
-      [queryParams]="{productid:product._id, title:product.title, category:product.category, subCategory: product.subCategory, price: product.price, rate: product.ratings.rate, count: product.ratings.count, image: product.image}">
+      [queryParams]="{productid:product._id, title:product.title, category:product.category, subCategory: product.subCategory, pid: product.id}">
         <p >{{ product.title }}</p>
         <span> {{ product.ratings.rate }} <mat-icon>hotel_class</mat-icon></span>
-        <p> ₹{{product.price}}</p>
+        <p> ₹{{product.price.discounted}}</p>
       </div>
       </mat-card>
     </div>

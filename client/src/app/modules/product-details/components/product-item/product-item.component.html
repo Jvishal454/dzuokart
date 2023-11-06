@@ -1,6 +1,51 @@
-<div *ngIf="productData">
+<div class="container" *ngIf="productData">
+    <!-- <div class="row1">
+        
+    </div> -->
+    <div class="row2">
+        <div class="col1">
+            <img [src]="productData.image">
+        </div>
+        <div class="col2">
+            <p>{{ productData.title }}</p>
+            <p> Product Description</p>
+            <div class="ratings-div"> 
+                <span> {{ productData.ratings.rate }} <mat-icon>hotel_class</mat-icon></span>
+                <p>{{productData.ratings.count}} Ratings</p>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="price">
+                <p>₹ {{ productData.price.discounted}}</p>
+                <p> MRP ₹{{productData.price.actual}}</p>
+                <p>({{ discountPercent }}% OFF) </p>
+            </div>
+            
+            <p> inclusive of all taxes</p>
+            <div class="size-p">
+                <p> SELECT SIZE</p>
+                <span>SIZE CHART <mat-icon>add_chart</mat-icon></span>
+            </div>
+            <div  class="item-size">
+                <mat-chip-listbox *ngFor="let itemsize of productData.size">
+                   <mat-chip-option color="warn" (click)="selectedChip(itemsize)"> {{itemsize}} </mat-chip-option>
+                </mat-chip-listbox>
+            </div>
+            <div class="deliver">
+                <span>DELIVER TO <mat-icon>pin_drop</mat-icon></span> 
+                <mat-form-field appearance="outline" [formGroup]="formData">
+                    <mat-label class="label">Address</mat-label>
+                    <input matInput formControlName="address" (blur)="onAddressFilled()" >
+                </mat-form-field>
+                  
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- <div *ngIf="productData">
     {{productData.title}}
     {{productData.id}}
     {{productData.category}}
     <img [src]="productData.image">
-</div>
+</div> -->

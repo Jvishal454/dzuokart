@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -57,6 +58,7 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
     MatSelectModule,
     MatRadioModule,
     MatStepperModule,
+    MatChipsModule,
 
     MatToolbarModule,
     MatSidenavModule,
@@ -92,6 +94,7 @@ import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
     MatSelectModule,
     MatRadioModule,
     MatStepperModule,
+    MatChipsModule,
 
     MatToolbarModule,
     MatSidenavModule,
