@@ -11,6 +11,7 @@ import { AppService } from 'src/app/shared/app.service';
 export class ProductItemComponent implements OnInit {
   productData: any;
   discountPercent;
+  shippingDate;
   formData = new UntypedFormGroup({
     address: new UntypedFormControl(null, [Validators.required])
   });
@@ -29,6 +30,9 @@ export class ProductItemComponent implements OnInit {
         this.discountPercent = Math.round(((this.productData.price.actual - this.productData.price.discounted)/this.productData.price.actual)*100)
       });
     });
+    this.getShippingDate();
+    // this.currentDate = new Date().toDateString();
+    
   }
 
   selectedChip(itemsize){
@@ -39,5 +43,20 @@ export class ProductItemComponent implements OnInit {
   onAddressFilled(){
     console.log('address filled')
     console.log(this.formData.value.address);
+  }
+
+  getShippingDate(){
+    var current = new Date(); //'Mar 11 2015' current.getTime() = 1426060964567
+    var followingDay = new Date(current.getTime() + (86400000 * 3)); // + 3 day in ms
+    var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    this.shippingDate = daysOfWeek[followingDay.getDay()] + ' ' +
+    months[followingDay.getMonth()] + ' ' +
+    ('0' + followingDay.getDate()).slice(-2) + ' ' +
+    followingDay.getFullYear();
+
+    // console.log(formattedDate);
+
   }
 }

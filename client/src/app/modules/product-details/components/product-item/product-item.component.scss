@@ -1,3 +1,5 @@
+// @use '@angular/material' as mat;
+
 .container{
     display: flex;
     flex-direction: column;
@@ -29,7 +31,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 25px;
-    margin-left: 25px;
+    margin-left: 30px;
     height: 100%;
     width: 60%;
     // background-color: red;
@@ -191,3 +193,58 @@ mat-form-field{
     width: 100%;
 }
 
+.deliver-texts{
+    display: flex;
+    flex-direction: column;
+}
+
+.deliver-texts span {
+    font-weight: 500;
+}
+
+.deliver-texts mat-icon{
+    margin-top: 5px;
+    margin-right: 15px;
+    // color: red;
+}
+
+.deliver-texts span:nth-child(3){
+    color: #03a695;
+    font-weight: 500;
+}
+
+.buttons{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.btn-cart{
+    background-color: #FAD16B;
+    height: 60px;
+    width: 300px;
+    font-weight: 600;
+    font-size: large;
+}
+
+
+.btn-wishlist{
+    // background-color: #FAD16B;
+    height: 60px;
+    width: 300px;
+    font-weight: 600;
+    font-size: large;
+}
+
+.btn-cart mat-icon,
+.btn-wishlist mat-icon {
+    transform: scale(1.5);
+    margin-right: 15px;
+}
+
+
+// .dense-2 {
+//     @include mat.all-component-densities(-1);
+//   }
