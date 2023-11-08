@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from 'src/app/shared/app.service';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { icons } from 'src/app/shared/shared/icons';
 
 @Component({
   selector: 'app-product-item',
@@ -19,8 +22,20 @@ export class ProductItemComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private appService: AppService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
     private fb: FormBuilder
-  ) {}
+  ) {
+    this.RegisterIcons();
+  }
+
+  private RegisterIcons(){
+    for( const [iconName, iconPath] of Object.entries(icons)){
+      this.matIconRegistry.addSvgIcon(
+        iconName, this.domSanitizer.bypassSecurityTrustResourceUrl(iconPath)
+      );
+    }
+  }
 
   ngOnInit(): void   {
     this.activatedRoute.queryParams.subscribe(x => {

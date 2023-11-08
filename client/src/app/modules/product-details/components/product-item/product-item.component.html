@@ -8,7 +8,9 @@
         </div>
         <div class="col2">
             <p>{{ productData.title }}</p>
-            <p> Product Description</p>
+            <p *ngIf="productData.description; else prodDesc">{{ productData.description }}</p>
+            <ng-template #prodDesc><p >Product Description</p> </ng-template>
+            
             <div class="ratings-div"> 
                 <span> {{ productData.ratings.rate }} <mat-icon>hotel_class</mat-icon></span>
                 <p>{{productData.ratings.count}} Ratings</p>
@@ -38,7 +40,7 @@
                 </mat-form-field>
                 <div class="deliver-texts">
                     <div> <mat-icon>local_shipping</mat-icon> <span>Get it by {{shippingDate}} | </span> <span > Free Delivery</span> </div>
-                    <div> <mat-icon>payments</mat-icon> <span>Cash on Delivery Available</span> </div>
+                    <div> <mat-icon>payments</mat-icon> <span matLine>Cash on Delivery Available</span> </div>
                     <div> <mat-icon>swap_horiz</mat-icon> <span>Easy 15 days Exchange & Return</span> </div>
                 </div>
                   
@@ -46,11 +48,22 @@
             <div class="buttons">
                 <div>
                     
-                    <button mat-raised-button class="btn-cart"> <mat-icon>shopping_bag</mat-icon>ADD TO CART</button>
+                    <button mat-raised-button class="btn-cart"> <mat-icon class="svg-icon" matListIcon svgIcon="{{'svg-shopping-bag'}}" ></mat-icon>ADD TO CART</button>
                 </div>
                 <div>
-                    <button mat-raised-button class="btn-wishlist"> <mat-icon>favorite</mat-icon> WISHLIST</button>
+                    <button mat-raised-button class="btn-wishlist"> <mat-icon  matListIcon svgIcon="{{'svg-heart-line'}}" ></mat-icon> WISHLIST</button>
                 </div>
+            </div>
+            <div class="offers">
+                <span  matLine>AVAILABLE OFFERS <mat-icon class="offer-icon" matListIcon svgIcon="{{'svg-offer'}}"></mat-icon></span>
+                <div *ngFor="let offer of productData.offers" class="offers-item">
+                    <mat-icon matIcon>sell</mat-icon>
+                    <span matLine>{{offer}}</span>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div>
+                <span matLine>PRODUCT DETAILS <mat-icon class="offer-icon" matListIcon >subject</mat-icon></span>
 
             </div>
         </div>

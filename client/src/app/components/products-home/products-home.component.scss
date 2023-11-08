@@ -51,10 +51,20 @@
 }
 
  .prod-img{
-    width: 10rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
     cursor: pointer;
     height: 65%; 
     // background-color: red;
+ }
+
+ img{
+  display: flex;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
  }
 
  .product-details {
