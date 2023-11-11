@@ -27,4 +27,14 @@ export class AppService {
     console.log('app service', data);
     return this.http.get(url);
   }
+
+  signupUser(data) {
+    let url = `/api/data/signup`;
+    return this.http.post(url, data);
+  }
+
+  loginUSer(data){
+    let url = `/api/data/login`;
+    return this.http.post(url, data);
+  }
 }

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FloatLabelType } from '@angular/material/form-field';
+import { AppService } from 'src/app/shared/app.service';
 
 @Component({
   selector: 'app-authentication',
@@ -29,12 +30,13 @@ export class AuthenticationComponent implements OnInit {
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private appService: AppService
   ){
     this.registerIcons();
 
     this.login = this.fb.group({
-      username: ['', Validators.required], 
+      email: ['', Validators.required], 
       password: ['', Validators.required],
     });
 
@@ -84,11 +86,26 @@ export class AuthenticationComponent implements OnInit {
 
   submitForm() {
     if (this.login.valid) {
-      const username = this.login.get('username').value;
-      const password = this.login.get('password').value;
+      // const username = this.login.get('username').value;
+      // const password = this.login.get('password').value;
+      // console.log(this.login.value);
 
-      console.log('Username:', username);
-      console.log('Password:', password);
+      this.appService.loginUSer(this.login.value).subscribe(
+        (res: any) => {
+        this.openSnackBar(res.message, 'close');
+      },
+      (error) => {
+        if(error.status === 401){
+           // Handle unauthorized access error
+          this.openSnackBar('Incorrect Username or password', 'close')
+        }
+        else{
+          // Handle other errors
+          console.error('An error occurred:', error);
+          this.openSnackBar('An error occurred. Please try again.', 'close');
+        }
+      }
+      );  
     }
     else {
         this.openSnackBar('Please Fill in the Fields', 'close')
@@ -101,9 +118,19 @@ export class AuthenticationComponent implements OnInit {
       const email = this.signup.get('email').value;
       const password = this.signup.get('password').value;
 
-      console.log('Username:', fullname);
-      console.log('Email', email);
-      console.log('Password:', password);
+      // console.log(this.signup.value);
+      // console.log('Username:', fullname);
+      // console.log('Email', email);
+      // console.log('Password:', password);
+      this.appService.signupUser(this.signup.value).subscribe((res: any) => {
+        this.openSnackBar(res.message, 'close');
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+        
+        // console.log('signup status - ',res.message);
+      })
+      
     }
     else {
         this.openSnackBar('Please Fill in the Signup Fields', 'close')

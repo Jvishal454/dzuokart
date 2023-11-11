@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
+// THIS ONE IS USED
 // Load environment variables from .env
 dotenv.config();
 
@@ -9,6 +10,12 @@ mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+// Defined a generic function to get a collection based on name and schema
+function getCollection(collectionName, schema) {
+  return mongoose.model(collectionName, schema);
+}
+
 
 // Define a schema and model for your collection (e.g., 'products')
 const productSchema = new mongoose.Schema({
@@ -20,6 +27,27 @@ const productSchema = new mongoose.Schema({
   image: String,
 });
 
-const modelProduct = mongoose.model('products', productSchema);
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password:{
+    type: String,
+    required: true
+  },
+  uhPassword: {
+    type: String,
+    require: true
+  }
+});
 
-export default modelProduct;
+const ProductCollection = getCollection('products', productSchema);
+const UserCollection = getCollection('users', userSchema);
+
+// Export the collections
+export { ProductCollection, UserCollection };

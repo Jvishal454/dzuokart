@@ -23,6 +23,7 @@
             </div>
             
             <p> inclusive of all taxes</p>
+
             <div class="size-p" *ngIf="productData.category == 'clothes'">
                 <p> SELECT SIZE</p>
                 <span>SIZE CHART <mat-icon>add_chart</mat-icon></span>
@@ -32,6 +33,18 @@
                    <mat-chip-option color="warn" (click)="selectedChip(itemsize)"> {{itemsize}} </mat-chip-option>
                 </mat-chip-listbox>
             </div>
+            <ng-container *ngIf="productData.category == 'Electronics'"> 
+                <div class="size-p">
+                    <p> SELECT VARIANT</p>
+                    <span>ALL VARIANTS <mat-icon>add_chart</mat-icon></span>
+                </div>
+                <div class="item-size">
+                <mat-chip-listbox *ngFor="let itemvariant of productData.variant">
+                   <mat-chip-option color="warn" (click)="selectedChip(itemvariant)"> {{itemvariant}} </mat-chip-option>
+                </mat-chip-listbox>
+            </div>
+            </ng-container>
+
             <div class="deliver">
                 <span>DELIVER TO <mat-icon>pin_drop</mat-icon></span> 
                 <mat-form-field appearance="outline" [formGroup]="formData">

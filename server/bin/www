@@ -7,6 +7,8 @@
 var app = require("../src/app");
 var debug = require("debug")("server:server");
 var http = require("http");
+var path = require("path");
+var bcrypt = require("bcrypt");
 
 /**
  * Get port from environment and store in Express.
