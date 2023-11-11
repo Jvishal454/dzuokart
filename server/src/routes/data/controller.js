@@ -1,8 +1,10 @@
 import { all } from ".";
 import { connectMongodb } from "../../services/mongodb/db-controller"
 import { ProductCollection, UserCollection } from "../../services/mongodb/mongodb";
+
 var path = require("path");
 var bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 
 
 export async function getProducts(req, res) {
