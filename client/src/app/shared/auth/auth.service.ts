@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor() { }
 
-  getToken(): string | null {
+  getToken() {
     const storedToken = localStorage.getItem('token');
     if(storedToken){
       const decodedToken = jwtDecode(storedToken);
@@ -24,17 +24,17 @@ export class AuthService {
       if(currentTime < expirationTime){
         // token is still valid
         console.log('Token is still valid')
-        return storedToken
+        return true;
       }
       else{
         // Token has expired, remove it and return null
         console.log('Token is expired')
         this.removeToken();
-        return 'false';
+        return false;
       }
     }
     else{
-      return 'false'
+      return false
     }
     
   }

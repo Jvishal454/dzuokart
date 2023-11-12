@@ -34,7 +34,7 @@ export class ProductsHomeComponent {
 
 
     this.appService.getMProducts().subscribe((data) => {
-      console.log('mongo products', data);
+      // console.log('mongo products', data);
       if (data instanceof Object) { 
         this.products = Object.values(data);
       } else {

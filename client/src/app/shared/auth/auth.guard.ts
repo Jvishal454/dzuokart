@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     private snackBar: MatSnackBar
     ) {}
   canActivate(): boolean {
-    if (this.authService.isLoggedIn()) {
+    if (this.authService.getToken()) {
       return true;
     } 
     else{

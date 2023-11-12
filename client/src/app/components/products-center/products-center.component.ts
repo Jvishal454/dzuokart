@@ -16,7 +16,7 @@ export class ProductsCenterComponent {
 
   ngOnInit(): void {
     this.appService.getMProducts().subscribe((data) => {
-      console.log('prod center products', data);
+      // console.log('prod center products', data);
       this.products = Array.isArray(data) ? data.slice(0, 5) : Object.values(data).slice(0, 5);
     });
   }

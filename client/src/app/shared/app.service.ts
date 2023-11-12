@@ -24,7 +24,7 @@ export class AppService {
 
   getProductItem(data){
     let url = `/api/data/getproductitem?pid=${data}`;
-    console.log('app service', data);
+    // console.log('app service', data);
     return this.http.get(url);
   }
 
