@@ -18,7 +18,7 @@ export class AuthService {
       // console.log('expiration', expirationTime)
       // const oneHourTimeLimit = 60000 // 60 * 60 * 1000; // 1 hour in milliseconds
 
-      const currentTime = Date.now();
+      const currentTime = Date.now(); 
       // const oneMinuteTimeLimit = 60000; // 1 minute in milliseconds
       // console.log('current time',currentTime)
       if(currentTime < expirationTime){
