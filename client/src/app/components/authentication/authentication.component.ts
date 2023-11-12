@@ -5,6 +5,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FloatLabelType } from '@angular/material/form-field';
 import { AppService } from 'src/app/shared/app.service';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-authentication',
@@ -31,7 +32,8 @@ export class AuthenticationComponent implements OnInit {
     private snackBar: MatSnackBar,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private appService: AppService
+    private appService: AppService,
+    private authService: AuthService
   ){
     this.registerIcons();
 
@@ -92,6 +94,8 @@ export class AuthenticationComponent implements OnInit {
 
       this.appService.loginUSer(this.login.value).subscribe(
         (res: any) => {
+          console.log('login resp',res);
+          this.authService.setToken(res.token);
         this.openSnackBar(res.message, 'close');
       },
       (error) => {
@@ -154,6 +158,14 @@ export class AuthenticationComponent implements OnInit {
     this.openSnackBar('Facebook Login under construction', 'close');
   }
 
+  getToken(){
+    const token = this.authService.getToken();
+    console.log(token)
+  }
+
+  logout(){
+    this.authService.logout();
+  }
   // getFloatLabelValue(): FloatLabelType {
   //   return this.floatLabelControl.value || 'auto';
   // }

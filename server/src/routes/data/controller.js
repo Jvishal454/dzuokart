@@ -5,6 +5,7 @@ import { ProductCollection, UserCollection } from "../../services/mongodb/mongod
 var path = require("path");
 var bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto'); 
 
 
 export async function getProducts(req, res) {
@@ -78,7 +79,9 @@ export async function login(req, res) {
     if (check){
       const isPasswordMatch = await bcrypt.compare(req.body.password, check.password);
       if (isPasswordMatch){
-        res.status(200).json({message: 'Welcome'})
+        const secretKey = crypto.randomBytes(32).toString('hex'); // 256 bits
+        const token = jwt.sign({ userId: check.email }, secretKey, { expiresIn: '1h' });
+        res.status(200).json({message: 'Welcome', token})
       }
       else{
         res.status(401).json({ message: 'Wrong Password! Please try'})
