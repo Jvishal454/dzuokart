@@ -39,7 +39,7 @@ export class AuthService {
       const decodedToken = jwtDecode(storedToken) as DecodedToken;
       console.log('decoded',decodedToken)
       const expirationTime = decodedToken.exp * 1000; // Convert to milliseconds
-      const currentTime = Date.now(); 
+      const currentTime = Date.now();  
       if(currentTime < expirationTime){
         // token is still valid
         console.log('Token is still valid')
