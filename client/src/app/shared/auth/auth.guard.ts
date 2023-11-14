@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from './auth.service';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, CanLoad, CanMatch, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class AuthGuard implements CanActivate {
     private router: Router,
     private snackBar: MatSnackBar
     ) {}
+
   canActivate(): boolean {
     if (this.authService.getToken()) {
       return true;
@@ -27,6 +29,12 @@ export class AuthGuard implements CanActivate {
       return false;
     }
     
+  }
+
+  getUserDetails(){
+    const storedToken = localStorage.getItem('token');
+    const decodedToken = jwtDecode(storedToken);
+    return decodedToken;
   }
 
 

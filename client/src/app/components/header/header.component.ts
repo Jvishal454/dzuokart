@@ -12,6 +12,7 @@ import { SidenavService } from 'src/app/shared/sidenav.service';
 export class HeaderComponent implements OnInit {
 
   loggedIn;
+  userDetails;
 
   constructor(
     private appService: AppService,
@@ -24,7 +25,13 @@ export class HeaderComponent implements OnInit {
     this.authService.loggedIn$.subscribe((loggedIn) => {
       this.loggedIn = loggedIn;
     });
+
+    this.authService.userDetails$.subscribe((userDetails) => {
+      this.userDetails = userDetails;
+      console.log('head',this.userDetails)
+    });
     // this.loggedIn = this.authService.getToken();
+    
   }
 
   toggleMenu(){

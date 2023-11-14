@@ -37,4 +37,9 @@ export class AppService {
     let url = `/api/data/login`;
     return this.http.post(url, data);
   }
+
+  userDetails(email){
+    let url = `/api/data/user-detail?email=${email}`
+    return this.http.get(url); 
+  }
 }

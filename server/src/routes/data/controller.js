@@ -95,3 +95,10 @@ export async function login(req, res) {
     res.status(404).json({ message: 'couldnt Login! Try Again.'})
   }
 }
+
+export async function userDetail(req, res){
+  const userEmail = req.query.email;
+  // await UserCollection.findOne({email: data.email});
+  
+  res.status(200).json({userEmail})
+}
