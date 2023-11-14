@@ -15,6 +15,7 @@ export class ProductItemComponent implements OnInit {
   productData: any;
   discountPercent;
   shippingDate;
+  userAddress;
   formData = new UntypedFormGroup({
     address: new UntypedFormControl(null, [Validators.required])
   });
@@ -42,7 +43,8 @@ export class ProductItemComponent implements OnInit {
       let selectedProduct = x;
       this.appService.getProductItem(selectedProduct['pid']).subscribe(data => {
         this.productData = data;
-        this.discountPercent = Math.round(((this.productData.price.actual - this.productData.price.discounted)/this.productData.price.actual)*100)
+        this.discountPercent = Math.round(((this.productData.price.actual - this.productData.price.discounted)/this.productData.price.actual)*100);
+        this.productData.ratings.count = this.getformattedCount(this.productData.ratings.count);
       });
     });
     this.getShippingDate();
@@ -73,5 +75,16 @@ export class ProductItemComponent implements OnInit {
 
     // console.log(formattedDate);
 
+  }
+
+   getformattedCount(value: number){
+     if (value >= 1000 && value <= 99999) {
+      return (value / 1000).toFixed(1) + 'k';
+    } else if (value >= 100000 && value <= 99999999) {
+      return (value / 100000).toFixed(1) + 'L';
+    }
+    else{
+      return value;
+    }
   }
 }

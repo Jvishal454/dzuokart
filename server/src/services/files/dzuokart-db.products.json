@@ -1,0 +1,31 @@
+[
+{
+  "_id": {
+    "$oid": "652929ebe19a83330d7bbb5a"
+  },
+  "id": 3,
+  "title": "Dell",
+  "price": {
+    "actual": 52500,
+    "discounted": 49900
+  },
+  "ratings": {
+    "rate": 4.1,
+    "count": 200
+  },
+  "category": "Electronics",
+  "subCategory": "Laptops",
+  "image": "assets/images/products/electronics/laptops/1-Dell/1.jpg",
+  "variant": [
+    "Core i5, 16 GB",
+    "Core i7, 32 GB",
+    "Core i9, 32 GB"
+  ],
+  "offers": [
+    "Extra ₹750 off on SBI Credit Card and Credit EMI Txns on Net Cart Value of ₹24,990 and above",
+    "Extra ₹1750 off on SBI Credit Card and Credit EMI Txns on Net Cart Value of ₹49,990 and above",
+    "Extra ₹1500 off on SBI Credit Card and Credit EMI Txns on Net Cart Value of ₹74,990 and above",
+    "10% Instant Discount on SBI Credit Card EMI Txns, up to ₹1750, on orders of ₹5,000 and above"
+  ]
+}
+]

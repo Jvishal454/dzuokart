@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'electronics', loadChildren: () => import('./modules/electronics/electronics.module').then((m) => m.ElectronicsModule)},
   { path: 'products', loadChildren: () => import('./modules/product-details/product-details.module').then((m) => m.ProductDetailsModule), canActivate: [AuthGuard]},
+  { path: 'account', loadChildren: () => import('./modules/account/account.module').then((m) => m.AccountModule), canActivate: [AuthGuard]},
   { path: 'authentication', component: AuthenticationComponent },
   { path: 'test', component: TestComponent }
   
