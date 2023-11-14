@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AppService } from 'src/app/shared/app.service';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 import { SidenavService } from 'src/app/shared/sidenav.service';
 
 @Component({
@@ -10,17 +11,29 @@ import { SidenavService } from 'src/app/shared/sidenav.service';
 })
 export class HeaderComponent implements OnInit {
 
+  loggedIn;
+
   constructor(
     private appService: AppService,
-    private sidenavService: SidenavService
+    private sidenavService: SidenavService,
+    private authService: AuthService
     ) { }
 
   ngOnInit(): void {
-    
+    console.log('header initialized ')
+    this.authService.loggedIn$.subscribe((loggedIn) => {
+      this.loggedIn = loggedIn;
+    });
+    // this.loggedIn = this.authService.getToken();
   }
 
   toggleMenu(){
     this.sidenavService.toggleSidenav();
+  }
+
+  logout(){
+    this.authService.logout();
+    window.location.reload();
   }
  
   // toggleMenu(){

@@ -18,10 +18,16 @@
       </button>
       <mat-menu #appMenu="matMenu" class="mat-menuu">
         <ng-template matMenuContent>
-          <button mat-menu-item routerLink="/authentication" routerLinkActive="">
+          <button mat-menu-item *ngIf="!loggedIn; else userProfile" routerLink="/authentication" routerLinkActive="">
             <mat-icon>person</mat-icon>
             <span>Login</span>
           </button>
+          <ng-template #userProfile>
+            <button mat-menu-item routerLink="/account" routerLinkActive="">
+              <mat-icon>person</mat-icon>
+              <span>My Profile</span>
+            </button>
+          </ng-template>
           <button mat-menu-item>
             <mat-icon>dialpad</mat-icon>
             <span>Redial</span>
@@ -30,6 +36,13 @@
             <mat-icon>settings</mat-icon>
             <span>Settings</span>
           </button>
+          <ng-container *ngIf="loggedIn" >
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
+            </button>
+          </ng-container>
         </ng-template>
       </mat-menu>
       

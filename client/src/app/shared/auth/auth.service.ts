@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 // import * as jwt_decode from 'jwt-decode';
 import { jwtDecode } from 'jwt-decode';
 
@@ -8,6 +9,14 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
 
   constructor() { }
+
+  private loggedInSubject = new BehaviorSubject<boolean>(this.getToken());
+
+  loggedIn$ = this.loggedInSubject.asObservable();
+
+  setLoginStatus(loggedIn: boolean) {
+    this.loggedInSubject.next(loggedIn);
+  }
 
   getToken() {
     const storedToken = localStorage.getItem('token');

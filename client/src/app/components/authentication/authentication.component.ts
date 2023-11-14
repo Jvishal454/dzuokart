@@ -6,6 +6,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { FloatLabelType } from '@angular/material/form-field';
 import { AppService } from 'src/app/shared/app.service';
 import { AuthService } from 'src/app/shared/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -33,7 +34,8 @@ export class AuthenticationComponent implements OnInit {
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     private appService: AppService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ){
     this.registerIcons();
 
@@ -88,7 +90,6 @@ export class AuthenticationComponent implements OnInit {
 
   submitForm() {
     if (this.login.valid) {
-      // const username = this.login.get('username').value;
       // const password = this.login.get('password').value;
       // console.log(this.login.value);
 
@@ -96,7 +97,10 @@ export class AuthenticationComponent implements OnInit {
         (res: any) => {
           console.log('login resp',res);
           this.authService.setToken(res.token);
-        this.openSnackBar(res.message, 'close');
+          //After a successful login, the setLoginStatus(true) method from the AuthService updates the login status as true which i ssubscribes by header comp
+          this.authService.setLoginStatus(true);
+          this.router.navigate(['/home']);
+          this.openSnackBar(res.message, 'close');
       },
       (error) => {
         if(error.status === 401){
