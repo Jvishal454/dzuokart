@@ -97,6 +97,7 @@ export class AuthenticationComponent implements OnInit {
         (res: any) => {
           console.log('login resp',res);
           this.authService.setToken(res.token);
+          this.authService.getToken();
           //After a successful login, the setLoginStatus(true) method from the AuthService updates the login status as true which i ssubscribes by header comp
           this.authService.setLoginStatus(true);
           this.router.navigate(['/home']);

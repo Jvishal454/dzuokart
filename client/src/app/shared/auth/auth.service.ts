@@ -36,7 +36,6 @@ export class AuthService {
     const storedToken = localStorage.getItem('token');
     if(storedToken){
       const decodedToken = jwtDecode(storedToken) as DecodedToken;
-      console.log('decoded',decodedToken)
       const expirationTime = decodedToken.exp * 1000; // Convert to milliseconds
       const currentTime = Date.now();  
       if(currentTime < expirationTime){

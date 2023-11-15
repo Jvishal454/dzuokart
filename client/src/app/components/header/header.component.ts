@@ -21,17 +21,23 @@ export class HeaderComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    console.log('header initialized ')
+
     this.authService.loggedIn$.subscribe((loggedIn) => {
       this.loggedIn = loggedIn;
     });
 
     this.authService.userDetails$.subscribe((userDetails) => {
       this.userDetails = userDetails;
-      console.log('head',this.userDetails)
     });
+
+    
     // this.loggedIn = this.authService.getToken();
     
+  }
+
+  refreshHeader(){
+    window.location.reload();
+    console.log('header refreshed')
   }
 
   toggleMenu(){
