@@ -28,7 +28,6 @@ export class AuthService {
   userDetails$ = this.userDetailsSubject.asObservable();
   // Set user details received from the GET request
   setUserDetails(userData: any) {
-    console.log('set user details called')
   this.userDetailsSubject.next(userData);
 }
 
