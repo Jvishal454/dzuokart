@@ -9,6 +9,7 @@ export class AppService {
 
   sidenav: MatSidenav;
   selectedProduct;
+  svUserData;
 
   constructor(private http: HttpClient) { }
 

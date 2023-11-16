@@ -5,6 +5,7 @@ import { AppService } from 'src/app/shared/app.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { icons } from 'src/app/shared/shared/icons';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 
 @Component({
   selector: 'app-product-item',
@@ -16,6 +17,7 @@ export class ProductItemComponent implements OnInit {
   discountPercent;
   shippingDate;
   userAddress;
+  userDetails;
   formData = new UntypedFormGroup({
     address: new UntypedFormControl(null, [Validators.required])
   });
@@ -23,10 +25,15 @@ export class ProductItemComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private appService: AppService,
+    private authService: AuthService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     private fb: FormBuilder
   ) {
+    // this.authService.userDetails$.subscribe((userDetails) => {
+    //   this.userDetails = userDetails;
+    //   console.log(this.userDetails.user.email)
+    // });
     this.RegisterIcons();
   }
 
@@ -47,6 +54,7 @@ export class ProductItemComponent implements OnInit {
         this.productData.ratings.count = this.getformattedCount(this.productData.ratings.count);
       });
     });
+    
     this.getShippingDate();
     // this.currentDate = new Date().toDateString();
     
@@ -60,6 +68,9 @@ export class ProductItemComponent implements OnInit {
   onAddressFilled(){
     console.log('address filled')
     console.log(this.formData.value.address);
+    
+    const loggedInUser = this.appService.svUserData;
+    console.log('logged in ',loggedInUser)
     this.appService.addUserAddress(this.formData.value.address).subscribe((res) => {
       console.log('add fill',res);
     });

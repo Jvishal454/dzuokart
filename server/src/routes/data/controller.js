@@ -101,7 +101,7 @@ export async function userDetail(req, res){
   const userData = await UserCollection.findOne({email: userEmail});
   const user = {
     name: userData.name,
-
+    email: userData.email
   }
   // console.log(user)
   
@@ -109,7 +109,9 @@ export async function userDetail(req, res){
 }
 
 export async function addUserAddress(req, res){
-  const userAddress = req.query.address;
+  const userAddress = req.query.address ;
   console.log(userAddress);
+
+
   res.status(200).json(req.query.address);
 }

@@ -36,13 +36,16 @@ export class AuthService {
     const storedToken = localStorage.getItem('token');
     if(storedToken){
       const decodedToken = jwtDecode(storedToken) as DecodedToken;
+      console.log('decoded token', decodedToken)
       const expirationTime = decodedToken.exp * 1000; // Convert to milliseconds
       const currentTime = Date.now();  
       if(currentTime < expirationTime){
         // token is still valid
         console.log('Token is still valid')
         this.appService.userDetails(decodedToken.userId).subscribe((userData) => {
+          // set the userdetail in subject behavior for other coimponents to susbcribe and use
           this.setUserDetails(userData);
+          this.appService.svUserData = userData;
           // this.userDetailsSubject.next(userData); // <- can do this to directly set the value but doing the other way to maintain structure
         })
         return true;
