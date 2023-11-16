@@ -6,6 +6,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { icons } from 'src/app/shared/shared/icons';
 import { AuthService } from 'src/app/shared/auth/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-item',
@@ -28,6 +29,7 @@ export class ProductItemComponent implements OnInit {
     private authService: AuthService,
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
+    private snackBar: MatSnackBar,
     private fb: FormBuilder
   ) {
     // this.authService.userDetails$.subscribe((userDetails) => {
@@ -68,11 +70,12 @@ export class ProductItemComponent implements OnInit {
   onAddressFilled(){
     console.log('address filled')
     console.log(this.formData.value.address);
-    
+
     const loggedInUser = this.appService.svUserData;
-    console.log('logged in ',loggedInUser)
-    this.appService.addUserAddress(this.formData.value.address).subscribe((res) => {
+    console.log('logged in ',loggedInUser.user.email)
+    this.appService.addUserAddress(this.formData.value.address, loggedInUser.user.email).subscribe((res: any) => {
       console.log('add fill',res);
+      this.openSnackBar(res.message, 'close')
     });
   }
 
@@ -100,5 +103,13 @@ export class ProductItemComponent implements OnInit {
     else{
       return value;
     }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+    });
   }
 }

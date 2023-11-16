@@ -43,6 +43,10 @@ const userSchema = new mongoose.Schema({
   uhPassword: {
     type: String,
     require: true
+  },
+  address: {
+    type: String,
+    
   }
 });
 

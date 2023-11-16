@@ -44,10 +44,11 @@ export class AppService {
     return this.http.get(url); 
   }
 
-  addUserAddress(address){
+  addUserAddress(address, email){
     const encodedAddress = encodeURIComponent(address)
+    const encodedEmail = encodeURIComponent(email)
     // let url = (`/api/data/add-user-address?address=${address}`).toString(); // we can also do it using toString() such that we get special characters value.
-    let url = `/api/data/add-user-address?address=${encodedAddress}`;
+    let url = `/api/data/add-user-address?address=${encodedAddress}&email=${encodedEmail}`;
     return this.http.get(url); 
   }
 }
