@@ -7,7 +7,8 @@ const {
     getProductItem,
     signup,
     login,
-    userDetail
+    userDetail,
+    addUserAddress
 } = require("./controller");
 
 require("dotenv").config();
@@ -19,8 +20,10 @@ app.get("/getproductitem", getProductItem);
 
 app.post("/signup", signup);
 
-app.post("/login", login)
+app.post("/login", login);
 
-app.get("/user-detail", userDetail)
+app.get("/user-detail", userDetail);
+
+app.get("/add-user-address", addUserAddress);
 
 module.exports = app;

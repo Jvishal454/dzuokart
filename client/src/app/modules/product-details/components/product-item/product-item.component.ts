@@ -60,6 +60,9 @@ export class ProductItemComponent implements OnInit {
   onAddressFilled(){
     console.log('address filled')
     console.log(this.formData.value.address);
+    this.appService.addUserAddress(this.formData.value.address).subscribe((res) => {
+      console.log('add fill',res);
+    });
   }
 
   getShippingDate(){

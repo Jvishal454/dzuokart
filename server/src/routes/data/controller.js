@@ -11,7 +11,7 @@ const crypto = require('crypto');
 export async function getProducts(req, res) {
     try {
         const products = await ProductCollection.find().lean(); // Retrieve all documents in the collection
-        console.log('all products',products)
+        // console.log('all products',products)
         res.json(products); // Send the data as JSON
       } catch (error) {
         console.error(error);
@@ -106,4 +106,10 @@ export async function userDetail(req, res){
   // console.log(user)
   
   res.status(200).json({user})
+}
+
+export async function addUserAddress(req, res){
+  const userAddress = req.query.address;
+  console.log(userAddress);
+  res.status(200).json(req.query.address);
 }
