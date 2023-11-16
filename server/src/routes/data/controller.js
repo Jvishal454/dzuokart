@@ -98,7 +98,12 @@ export async function login(req, res) {
 
 export async function userDetail(req, res){
   const userEmail = req.query.email;
-  // await UserCollection.findOne({email: data.email});
+  const userData = await UserCollection.findOne({email: userEmail});
+  const user = {
+    name: userData.name,
+
+  }
+  // console.log(user)
   
-  res.status(200).json({userEmail})
+  res.status(200).json({user})
 }
