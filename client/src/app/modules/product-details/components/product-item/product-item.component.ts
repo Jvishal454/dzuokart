@@ -71,7 +71,9 @@ export class ProductItemComponent implements OnInit {
 
     const loggedInUser = this.appService.svUserData;
     console.log('logged in ',loggedInUser.user.email)
-    if(this.formData.value.address){
+    // Trimmed value to check if it's empty or contains only spaces
+    this.formData.value.address.trim();
+    if(this.formData.value.address && this.formData.value.address != ''){
       this.appService.addUserAddress(this.formData.value.address, loggedInUser.user.email).subscribe((res: any) => {
         console.log('add fill',res);
         this.openSnackBar(res.message, 'close')
@@ -86,6 +88,9 @@ export class ProductItemComponent implements OnInit {
   fetchAddress(){
     const data = JSON.parse(localStorage.getItem('user_data'));
     this.userDetails = data.user;
+    if(this.userDetails.address && this.userDetails.address != 'false' ){
+      this.formData.get('address').setValue(this.userDetails.address);
+    }
     console.log('item',data.user);  
   }
 
