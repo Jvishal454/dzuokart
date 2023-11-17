@@ -51,4 +51,10 @@ export class AppService {
     let url = `/api/data/add-user-address?address=${encodedAddress}&email=${encodedEmail}`;
     return this.http.get(url); 
   }
+
+  getUserAddress(){
+    let url = `/api/data/get-user-address`;
+    return this.http.get(url); 
+  }
+
 }

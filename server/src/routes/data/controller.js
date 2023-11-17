@@ -111,6 +111,7 @@ export async function userDetail(req, res){
 export async function addUserAddress(req, res){
   try{
     const userAddress = req.query.address;
+    console.log('aaaddress', userAddress)
     const userEmail = req.query.email;
     console.log(userAddress, userEmail);
     if(userAddress){
@@ -128,6 +129,30 @@ export async function addUserAddress(req, res){
   }
   catch(error){
     console.error('Error updating user address:', error);
-    res.status(404).json({ message: 'couldnt Login! Try Again.'})
+    res.status(404).json({ message: 'Error updating! Try Again.'})
+  }  
+}
+
+export async function getUserAddress(req, res){
+  try{
+    const userAddress = req.query.address;
+    const userEmail = req.query.email;
+    console.log(userAddress, userEmail);
+    if(userAddress){
+      const result = await UserCollection.updateOne(
+        { email: userEmail },
+        { $set: { address: userAddress}},
+        { upsert: true } // This option inserts a new document if no matching document is found
+      );
+      console.log('User address updated:', result);
+      res.status(200).json({ message: 'Address updated succesfully!'});
+    }
+   else{
+    res.status(200).json({ message: 'Please fill in address'});
+   }
+  }
+  catch(error){
+    console.error('Error getting user address:', error);
+    res.status(404).json({ message: 'Error! Try Again.'})
   }  
 }

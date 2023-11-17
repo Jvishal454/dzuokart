@@ -73,10 +73,15 @@ export class ProductItemComponent implements OnInit {
 
     const loggedInUser = this.appService.svUserData;
     console.log('logged in ',loggedInUser.user.email)
-    this.appService.addUserAddress(this.formData.value.address, loggedInUser.user.email).subscribe((res: any) => {
-      console.log('add fill',res);
-      this.openSnackBar(res.message, 'close')
-    });
+    if(this.formData.value.address){
+      this.appService.addUserAddress(this.formData.value.address, loggedInUser.user.email).subscribe((res: any) => {
+        console.log('add fill',res);
+        this.openSnackBar(res.message, 'close')
+      });
+    }
+    else{
+      this.openSnackBar('Please fill in address', 'close')
+    }
   }
 
   getShippingDate(){
