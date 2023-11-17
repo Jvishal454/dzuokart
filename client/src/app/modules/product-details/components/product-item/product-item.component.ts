@@ -32,11 +32,9 @@ export class ProductItemComponent implements OnInit {
     private snackBar: MatSnackBar,
     private fb: FormBuilder
   ) {
-    // this.authService.userDetails$.subscribe((userDetails) => {
-    //   this.userDetails = userDetails;
-    //   console.log(this.userDetails.user.email)
-    // });
+    
     this.RegisterIcons();
+    console.log('item constructor')
   }
 
   private RegisterIcons(){
@@ -59,7 +57,7 @@ export class ProductItemComponent implements OnInit {
     
     this.getShippingDate();
     // this.currentDate = new Date().toDateString();
-    
+    this.fetchAddress()
   }
 
   selectedChip(itemsize){
@@ -82,6 +80,13 @@ export class ProductItemComponent implements OnInit {
     else{
       this.openSnackBar('Please fill in address', 'close')
     }
+  }
+
+  // if user address exists/previosuly filled we set the address
+  fetchAddress(){
+    const data = JSON.parse(localStorage.getItem('user_data'));
+    this.userDetails = data.user;
+    console.log('item',data.user);  
   }
 
   getShippingDate(){

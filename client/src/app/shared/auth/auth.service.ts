@@ -45,7 +45,12 @@ export class AuthService {
         this.appService.userDetails(decodedToken.userId).subscribe((userData) => {
           // set the userdetail in subject behavior for other coimponents to susbcribe and use
           this.setUserDetails(userData);
+
+          // setting userdata in localStorage
+          localStorage.setItem('user_data', JSON.stringify(userData));
+
           this.appService.svUserData = userData;
+          // console.log(this.appService.svUserData);
           // this.userDetailsSubject.next(userData); // <- can do this to directly set the value but doing the other way to maintain structure
         })
         return true;

@@ -101,8 +101,11 @@ export async function userDetail(req, res){
   const userData = await UserCollection.findOne({email: userEmail});
   const user = {
     name: userData.name,
-    email: userData.email
+    email: userData.email,
   }
+  // if user address exists we send that as user payload else we send false
+  userData.address ? user.address = userData.address : user.address = 'false';
+    
   // console.log(user)
   
   res.status(200).json({user})
@@ -136,14 +139,9 @@ export async function addUserAddress(req, res){
 export async function getUserAddress(req, res){
   try{
     const userAddress = req.query.address;
-    const userEmail = req.query.email;
     console.log(userAddress, userEmail);
     if(userAddress){
-      const result = await UserCollection.updateOne(
-        { email: userEmail },
-        { $set: { address: userAddress}},
-        { upsert: true } // This option inserts a new document if no matching document is found
-      );
+      const result = await UserCollection.findOne({address: userAddress});
       console.log('User address updated:', result);
       res.status(200).json({ message: 'Address updated succesfully!'});
     }
