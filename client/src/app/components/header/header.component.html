@@ -8,12 +8,15 @@
       <span class="mr-2 sm:mr-2 md:mr-2 lg:mr-2 xl:mr-2 link white-color" routerLink="home" >DzuoKart</span>
        <mat-icon class="favorite-icon tool-icon running-cart">shopping_cart</mat-icon>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" >
-        <mat-icon>settings</mat-icon>
+      <button mat-icon-button matTooltip="Wishlist" class="example-icon favorite-icon" >
+        <mat-icon mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button  matTooltip="Cart" class="example-icon favorite-icon" >
+        <mat-icon mat-icon  >shopping_cart</mat-icon>
       </button>
 
       <!-- Lazy rendereing using template -->
-      <button mat-icon-button [matMenuTriggerFor]="appMenu" class="example-icon" aria-label="Example icon-button with share icon">
+      <button mat-icon-button [matMenuTriggerFor]="appMenu"  matTooltip="Profile" class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon>person</mat-icon>
       </button>
       <mat-menu #appMenu="matMenu" class="mat-menuu">
