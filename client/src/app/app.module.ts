@@ -14,6 +14,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { TestComponent } from './components/test/test.component';
 import { ProductsHomeComponent } from './components/products-home/products-home.component';
 import { ProductsCenterComponent } from './components/products-center/products-center.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ProductsCenterComponent } from './components/products-center/products-c
     TestComponent,
     ProductsHomeComponent,
     ProductsCenterComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
