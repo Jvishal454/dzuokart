@@ -57,4 +57,10 @@ export class AppService {
     return this.http.get(url); 
   }
 
+  wishList(user, data) {
+    console.log(user, data)
+    let url = `/api/data/add-wishlist`;
+    return this.http.post(url, user, data);
+  }
+
 }

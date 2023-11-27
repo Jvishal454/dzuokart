@@ -154,3 +154,27 @@ export async function getUserAddress(req, res){
     res.status(404).json({ message: 'Error! Try Again.'})
   }  
 }
+
+export async function addWishlist(req, res) {
+  try{
+    const userEmail = req.body.user;
+    const payload = req.body.data;
+    console.log('email',userEmail)
+    console.log(payload)
+    res.status(200).json({ message: 'Successfully Added to Wishlist'})
+  }
+  catch(error){
+    console.error('Error adding to wishlist', error);
+    res.status(404).json({ message: 'Error! Try Again.'})
+  }
+}
+
+export async function getWishlist(req, res) {
+  try{
+    
+  }
+  catch(error){
+    console.error('Error adding to wishlist', error);
+    res.status(404).json({ message: 'Error! Try Again.'})
+  }
+}

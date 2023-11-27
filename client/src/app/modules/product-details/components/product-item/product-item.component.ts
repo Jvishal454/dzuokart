@@ -119,8 +119,14 @@ export class ProductItemComponent implements OnInit {
     }
   }
 
-  wishlist(){
+  wishlist(){ 
     console.log('wishlisted item is ', this.productData);
+    const data = JSON.parse(localStorage.getItem('user_data'));
+    console.log('user data',data.user.email);
+    
+    this.appService.wishList(data.user.email ,this.productData).subscribe( (res) => {
+      console.log('wishlist resp', res);
+    })
   }
 
   openSnackBar(message: string, action: string) {
