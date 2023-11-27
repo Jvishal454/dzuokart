@@ -156,18 +156,29 @@ export async function getUserAddress(req, res){
 }
 
 export async function addWishlist(req, res) {
-  try{
-    const userEmail = req.body.user;
-    const payload = req.body.data;
-    console.log('email',userEmail)
-    console.log(payload)
-    res.status(200).json({ message: 'Successfully Added to Wishlist'})
-  }
-  catch(error){
+  try {
+    const { user, data } = req.body;
+    console.log('wishlist user',user);
+
+    // Push the data into the wishlist array
+    const result = await UserCollection.updateOne(
+      { email: user },
+      { $push: { wishlist: data } }
+    );
+
+    console.log(result) 
+
+    if (result.modifiedCount > 0) {
+      res.status(200).json({ message: 'Successfully Added to Wishlist' });
+    } else {
+      res.status(200).json({ message: 'No document modified or wishlist update failed.' });
+    }
+  } catch (error) {
     console.error('Error adding to wishlist', error);
-    res.status(404).json({ message: 'Error! Try Again.'})
+    res.status(404).json({ message: 'Error! Try Again.' });
   }
 }
+
 
 export async function getWishlist(req, res) {
   try{

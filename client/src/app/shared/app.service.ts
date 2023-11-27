@@ -59,8 +59,9 @@ export class AppService {
 
   wishList(user, data) {
     console.log(user, data)
+    const payload = {user, data}
     let url = `/api/data/add-wishlist`;
-    return this.http.post(url, user, data);
+    return this.http.post(url, payload);
   }
 
 }
