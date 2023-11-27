@@ -64,3 +64,9 @@ cd server
 
 # Install dependencies
 npm install
+
+#Run in client directory
+npm run dev
+
+#Run in server directory
+npm run dev
