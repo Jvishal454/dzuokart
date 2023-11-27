@@ -182,6 +182,13 @@ export async function addWishlist(req, res) {
 
 export async function getWishlist(req, res) {
   try{
+
+    const { user } = req.query.user;
+    // Find the user document by email
+    const existingUser = await UserCollection.findOne({ email: user });
+    // Retrieve the count of items in the wishlist array
+    const wishlistCount = existingUser.wishlist.length;
+    res.status(200).json({ count: wishlistCount });
     
   }
   catch(error){

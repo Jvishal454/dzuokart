@@ -10,7 +10,8 @@ const {
     userDetail,
     addUserAddress,
     getUserAddress,
-    addWishlist
+    addWishlist,
+    getWishlist
 } = require("./controller");
 
 require("dotenv").config();
@@ -31,5 +32,7 @@ app.get("/add-user-address", addUserAddress);
 app.get("/get-user-address", getUserAddress);
 
 app.post("/add-wishlist", addWishlist);
+
+app.get("/get-wishlist", getWishlist);
 
 module.exports = app;
