@@ -34,7 +34,6 @@ export class ProductItemComponent implements OnInit {
   ) {
     
     this.RegisterIcons();
-    console.log('item constructor')
   }
 
   private RegisterIcons(){
@@ -91,7 +90,7 @@ export class ProductItemComponent implements OnInit {
     if(this.userDetails.address && this.userDetails.address != 'false' ){
       this.formData.get('address').setValue(this.userDetails.address);
     }
-    console.log('item',data.user);  
+    // console.log('user data',data.user);  
   }
 
   getShippingDate(){
@@ -118,6 +117,10 @@ export class ProductItemComponent implements OnInit {
     else{
       return value;
     }
+  }
+
+  wishlist(){
+    console.log('wishlisted item is ', this.productData);
   }
 
   openSnackBar(message: string, action: string) {
