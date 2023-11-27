@@ -64,4 +64,9 @@ export class AppService {
     return this.http.post(url, payload);
   }
 
+  getWishlist(user){
+    let url = `/api/data/get-wishlist?user=${user}`;
+    return this.http.get(url);
+  }
+
 }
