@@ -32,7 +32,9 @@ export class HeaderComponent implements OnInit {
 
     
     // this.loggedIn = this.authService.getToken();
-    
+    // this.appService.getWishlist().subscribe((res) => {
+    //   console.log(res)
+    // })
   }
 
   refreshHeader(){

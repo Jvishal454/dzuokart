@@ -69,6 +69,19 @@
   }
 }
 
+.wishlist-count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: medium;
+  top: 0;
+  width: 15px; 
+  height: 15px;
+  border-radius: 50%;
+  background: floralwhite;
+}
+
 //Running all changes for modile width
 @media all and (max-width: 430px) {
   .toolbar{
