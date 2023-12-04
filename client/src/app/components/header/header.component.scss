@@ -60,7 +60,7 @@
     transform: translateX(calc(8.8rem - 100%)) scale(2.4); 
     animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1); 
   }
-  100% {
+  100% { 
     transform: translateX(0) scale(1);
     position: relative; 
   /* Adjust positioning as needed */
