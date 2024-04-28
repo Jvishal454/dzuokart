@@ -74,6 +74,19 @@ npm run dev
 ```
 ### Screen from the web app
 
+## First Screen
+
 ![First Screen](screens/dzuokart.PNG)
 
+## Product Screen
+
+![Product Screen](screens/dzuokart-product.PNG)
+
+## Signup Screen
+
+![signup Screen](screens/dzuokart-signup.PNG)
+
+## Login Screen
+
 ![Login Screen](screens/dzuokart-login.PNG)
+
