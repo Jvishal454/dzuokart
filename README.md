@@ -70,3 +70,10 @@ npm run dev
 
 #Run in server directory
 npm run dev
+
+```
+### Screen from the web app
+
+![First Screen](screens/dzuokart.PNG)
+
+![Login Screen](screens/dzuokart-login.PNG)
